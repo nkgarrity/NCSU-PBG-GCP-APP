@@ -1,9 +1,10 @@
 # Build stage
 FROM node:18 as build
 WORKDIR /app
-COPY package*.json ./
+# Copy from the subfolder
+COPY ncsu-pbg-gcp-app/package*.json ./
 RUN npm install
-COPY . ./
+COPY ncsu-pbg-gcp-app/ ./
 RUN npm run build
 
 # Production stage
